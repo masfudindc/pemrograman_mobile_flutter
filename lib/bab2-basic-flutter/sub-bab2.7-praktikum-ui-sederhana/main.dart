@@ -1,52 +1,52 @@
 import 'package:flutter/material.dart';
-import 'news.dart';
+import 'package:pemrograman_mobile_flutter/bab2-basic-flutter/sub-bab2.7-praktikum-ui-sederhana/news.dart';
+
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Berita Bwola',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      home: DefaultTabController(
-        length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Berita Bwola'),
-            bottom: const TabBar(
-              tabs: [
-                Tab(
-                  text: 'Berita Terbaru',
-                ),
-                Tab(
-                  text: 'Pertandingan Hari Ini',
-                ),
-              ],
-            ),
-          ),
-          body: const TabBarView(
-            children: [
-              News(),
-              Center(
-                child: Text(
-                  'Konten Pertandingan Hari Ini',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.red,
-                  ),
-                ),
-              ),
+      home: const MyHomePage(title: 'Tugas Pertama Flutter'),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final String title;
+  const MyHomePage({super.key, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: 'BERITA TERBARU'),
+              Tab(text: 'PERTANDINGAN HARI INI'),
             ],
           ),
+        ),
+        body: const TabBarView(
+          children: [
+            News(),
+            Center(child: Text('Pertandingan Hari Ini')),
+          ],
         ),
       ),
     );
   }
 }
 
-void main() {
-  runApp(const MyApp());
-}

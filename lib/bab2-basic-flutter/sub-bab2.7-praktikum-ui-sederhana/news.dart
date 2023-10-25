@@ -1,61 +1,133 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class News extends StatelessWidget {
-  const News({super.key});
+  const News();
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        Image.network(
-          'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt07d62336ee8ed926/6214ab2690aa357658b8e4cc/18-maguire.jpg?auto=webp&format=pjpg&width=3840&quality=60',
-          alignment: Alignment.topCenter,
-        ),
-        Text(
-          'Harry Maguire enggan pindah dari MU',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.gothicA1(
-            color: Colors.black,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Container(
-          color: const Color.fromARGB(255, 179, 0, 202),
-          width: double.infinity,
-          margin: const EdgeInsets.only(top: 8.0),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Jendela Transfer',
-              style: GoogleFonts.gothicA1(
-                textStyle: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
+        HightlightedCard(),
+        Expanded(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Card(
+                  'https://source.unsplash.com/random/480x260/?football',
+                  'Costa Mendekat Ke Palmeiras',
+                  'Barcelona Feb 13, 2021',
                 ),
-              ),
+                Card(
+                  'https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt0530b1f489ecf15e/63dd7d0a78294c28ffb25e64/GettyImages-1246771506.jpg?auto=webp&format=pjpg&width=3840&quality=60',
+                  'Costa Mendekat Ke Palmeiras',
+                  'Barcelona Feb 13, 2021',
+                ),
+                Card(
+                  'https://source.unsplash.com/random/480x260/?football',
+                  'Costa Mendekat Ke Palmeiras',
+                  'Barcelona Feb 13, 2021',
+                ),
+              ],
             ),
           ),
         ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: 5,
-            itemBuilder: (BuildContext context, int index) {
-              const itemImage =
-                  'https://asset-2.tstatic.net/jambi/foto/bank/images/Sadio-Mane-gabung-Al-Nassr-FC-29072023.jpg';
-              const itemTitle = 'Sadio Mane Gabung Al-Nassr FC !! Here We Go';
-              const itemDate = '20-08-2023';
-
-              return ListTile(
-                leading: Image.network(itemImage),
-                title: const Text(itemTitle),
-                subtitle: const Text(itemDate),
-              );
-            },
-          ),
-        ),
       ],
+    );
+  }
+}
+
+class Card extends StatelessWidget {
+  final String imagUrl;
+  final String title;
+  final String locationAndDate;
+  const Card(this.imagUrl, this.title, this.locationAndDate, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 8,
+      ),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.blue,
+          width: 1,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Image.network(
+                imagUrl,
+                height: 120,
+                width: 160,
+                fit: BoxFit.cover,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(title),
+              ),
+            ],
+          ),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+                border: Border.all(
+              color: Colors.blue,
+              width: 1,
+            )),
+            child: Text(locationAndDate),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class HightlightedCard extends StatelessWidget {
+  const HightlightedCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 8,
+      ),
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.purple,
+          width: 4,
+        ),
+      ),
+      child: Column(
+        children: [
+          Image.network('https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt0530b1f489ecf15e/63dd7d0a78294c28ffb25e64/GettyImages-1246771506.jpg?auto=webp&format=pjpg&width=3840&quality=60'),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Costa Mendekat Ke Palmeiras',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Container(
+            height: 48,
+            width: double.infinity,
+            padding: const EdgeInsets.all(8),
+            color: Colors.purple,
+            alignment: Alignment.centerLeft,
+            child: const Text(
+              'Transfer',
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
