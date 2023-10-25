@@ -1,6 +1,5 @@
 # pemrograman_mobile_flutter
-
-A new Flutter project.
+Mata Kuliah Pemrograman Mobile Semester 5
 
 ## Getting Started
 
