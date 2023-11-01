@@ -73,15 +73,15 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'History',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.qr_code_scanner),
             label: 'Pay',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.inbox),
             label: 'Inbox',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.help),
+            icon: Icon(Icons.person),
             label: 'Account',
           ),
         ],
