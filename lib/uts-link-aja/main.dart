@@ -33,7 +33,18 @@ class _MyHomePageState extends State<MyHomePage> {
       'History Page',
       style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
     ),
-
+    Text(
+      'Pay Page',
+      style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+    ),
+    Text(
+      'Inbox Page',
+      style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+    ),
+    Text(
+      'Account Page',
+      style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -61,7 +72,18 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.search),
             label: 'History',
           ),
-
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Pay',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Inbox',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.help),
+            label: 'Account',
+          ),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: const Color.fromARGB(255, 255, 0, 0),
