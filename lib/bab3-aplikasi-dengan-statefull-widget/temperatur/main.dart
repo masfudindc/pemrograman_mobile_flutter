@@ -4,12 +4,14 @@ import 'input.dart';
 import 'result.dart';
 import 'convert.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Suhu Converter',
       home: TemperatureConverter(),
     );
@@ -17,12 +19,14 @@ class MyApp extends StatelessWidget {
 }
 
 class TemperatureConverter extends StatefulWidget {
+  const TemperatureConverter({super.key});
+
   @override
   _TemperatureConverterState createState() => _TemperatureConverterState();
 }
 
 class _TemperatureConverterState extends State<TemperatureConverter> {
-  TextEditingController _celsiusController = TextEditingController();
+  final TextEditingController _celsiusController = TextEditingController();
   double _kelvinResult = 0.0;
   double _reamurResult = 0.0;
 
@@ -40,7 +44,7 @@ class _TemperatureConverterState extends State<TemperatureConverter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Konverter Suhu'),
+        title: const Text('Konverter Suhu'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

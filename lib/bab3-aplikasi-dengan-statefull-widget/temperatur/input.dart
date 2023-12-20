@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class InputSection extends StatelessWidget {
   final TextEditingController controller;
 
-  InputSection({required this.controller});
+  const InputSection({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +12,12 @@ class InputSection extends StatelessWidget {
       children: [
         TextField(
           controller: controller,
-          keyboardType: TextInputType.numberWithOptions(decimal: true),
-          decoration: InputDecoration(
+          keyboardType: const TextInputType.numberWithOptions(decimal: true),
+          decoration: const InputDecoration(
             labelText: 'Masukkan Suhu (Celsius)',
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
       ],
     );
   }
